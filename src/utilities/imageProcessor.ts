@@ -38,7 +38,7 @@ export async function resizeImage(params: ResizeParams): Promise<string> {
 
   // Normalize name and produce cached filename
   const nameWithoutExt = path.parse(filename).name;
-  const cachedFilename = `${nameWithoutExt}_${width}x${height}.jpg`;
+  const cachedFilename = `${nameWithoutExt}_${width}x${height}.jpeg`;
   const cachedPath = path.join(outputFolder, cachedFilename);
 
   // If cached exists, return it

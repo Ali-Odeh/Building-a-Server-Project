@@ -32,7 +32,7 @@ async function resizeImage(params) {
     }
     // Normalize name and produce cached filename
     const nameWithoutExt = path_1.default.parse(filename).name;
-    const cachedFilename = `${nameWithoutExt}_${width}x${height}.jpg`;
+    const cachedFilename = `${nameWithoutExt}_${width}x${height}.jpeg`;
     const cachedPath = path_1.default.join(outputFolder, cachedFilename);
     // If cached exists, return it
     try {

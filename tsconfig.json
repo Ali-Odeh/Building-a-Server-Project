@@ -6,7 +6,10 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "module": "CommonJS"
   },
   "include": ["src/**/*", "tests/**/*"]
 }

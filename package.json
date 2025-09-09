@@ -2,11 +2,11 @@
   "name": "image-api",
   "version": "1.0.0",
   "description": "Express + TypeScript image resizing API (Sharp) with caching and tests",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/src/index.js",
     "lint": "eslint --ext .ts src",
     "prettier": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "test": "jasmine --config=jasmine.json"

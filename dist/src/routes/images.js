@@ -8,8 +8,8 @@ const path_1 = __importDefault(require("path"));
 const promises_1 = __importDefault(require("fs/promises"));
 const imageProcessor_1 = require("../utilities/imageProcessor");
 const router = (0, express_1.Router)();
-const IMAGES_FOLDER = path_1.default.join(__dirname, "../../images");
-const THUMBS_FOLDER = path_1.default.join(__dirname, "../../thumbs");
+const IMAGES_FOLDER = path_1.default.join(process.cwd(), "images");
+const THUMBS_FOLDER = path_1.default.join(process.cwd(), "thumbs");
 router.get("/", async (req, res) => {
     try {
         const filename = req.query.filename || "";
@@ -33,11 +33,13 @@ router.get("/", async (req, res) => {
         }
         // Confirm source image exists
         const sourcePath = path_1.default.join(IMAGES_FOLDER, filename);
+        console.log("Looking for image at:", sourcePath);
+        console.log("IMAGES_FOLDER:", IMAGES_FOLDER);
         try {
             await promises_1.default.access(sourcePath);
         }
         catch {
-            return res.status(404).json({ error: `Image "${filename}" not found` });
+            return res.status(404).json({ error: `Image "${filename}" not found at ${sourcePath}` });
         }
         // Ensure thumbs folder exists
         try {

@@ -5,8 +5,8 @@ import { resizeImage } from "../utilities/imageProcessor";
 
 const router = Router();
 
-const IMAGES_FOLDER = path.join(__dirname, "../../images");
-const THUMBS_FOLDER = path.join(__dirname, "../../thumbs");
+const IMAGES_FOLDER = path.join(process.cwd(), "images");
+const THUMBS_FOLDER = path.join(process.cwd(), "thumbs");
 
 router.get("/", async (req: Request, res: Response) => {
   try {
@@ -34,10 +34,12 @@ router.get("/", async (req: Request, res: Response) => {
 
     // Confirm source image exists
     const sourcePath = path.join(IMAGES_FOLDER, filename);
+    console.log("Looking for image at:", sourcePath);
+    console.log("IMAGES_FOLDER:", IMAGES_FOLDER);
     try {
       await fs.access(sourcePath);
     } catch {
-      return res.status(404).json({ error: `Image "${filename}" not found` });
+      return res.status(404).json({ error: `Image "${filename}" not found at ${sourcePath}` });
     }
 
     // Ensure thumbs folder exists
