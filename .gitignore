@@ -1,0 +1,3 @@
+# Project exclude paths
+/tests/helpers/imageProcessorSpec.js
+/tests/routes/imagesSpec.js
