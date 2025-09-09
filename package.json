@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "lint": "eslint --ext .ts src",
     "prettier": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
-    "test": "jasmine"
+    "test": "jasmine --config=jasmine.json"
   },
   "author": "Ali Odeh",
   "license": "MIT",

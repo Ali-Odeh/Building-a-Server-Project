@@ -1,8 +1,12 @@
 {
   "spec_dir": "tests",
-  "spec_files": ["**/*[sS]pec.ts"],
-  "helpers": [],
+  "spec_files": [
+    "**/*Spec.js",
+    "**/*spec.js"
+  ],
+  "helpers": [
+    "helpers/spec-reporter.js"
+  ],
   "stopSpecOnExpectationFailure": false,
-  "random": false,
-  "requires": ["ts-node/register"]
+  "random": false
 }

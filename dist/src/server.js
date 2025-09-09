@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 // Error-handling: catch-all
 app.use((err, _req, res) => {
-    console.error('Unhandled Error:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Unhandled Error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
 });
 exports.default = app;
