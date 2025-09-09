@@ -1,4 +1,4 @@
-# 📸 Image Resizing API (Node.js + TypeScript + Express + Sharp)
+# Image Resizing API (Node.js + TypeScript + Express + Sharp)
 
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)  
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)  
