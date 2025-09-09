@@ -1,61 +1,132 @@
-# Image Processing API
+# 📸 Image Resizing API (Node.js + TypeScript + Express + Sharp)
 
-This project aims to give you a real-world scenario in which you would read and write to your disk via a Node.js express server rather than a database. The project you create serves two purposes: to prepare you for setting up scalable code and architecture for real-world projects and tie together some of the most popular middleware and utilities found in Node.js projects. This project barely touches the surface of what is possible but will prove your ability to use what you’ve learned in real-world scenarios.
+![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)  
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)  
+![Express](https://img.shields.io/badge/Express.js-4-black?logo=express)  
+![Sharp](https://img.shields.io/badge/Sharp-Image%20Processing-orange)  
+![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen?logo=jasmine)  
+![Lint](https://img.shields.io/badge/Lint-ESLint-purple?logo=eslint)  
+![Format](https://img.shields.io/badge/Format-Prettier-yellow?logo=prettier)
 
-For this project, refactor and test as much as possible while you are building. Since you are using TypeScript and an unfamiliar library, it is sometimes easier to write and build in plain JS to see what your functions return; remember your submission needs to be in TypeScript. As your skills improve, typing in TypeScript will feel more intuitive. Make sure to remove any debugging code from your final submission.
+A simple API built with **TypeScript** and **Node.js (Express)** that resizes images using [Sharp](https://sharp.pixelplumbing.com/).  
+It supports **caching** of resized images inside the `thumbs/` folder for faster responses.  
+Includes **tests** (Jasmine + SuperTest) and code formatting/linting (ESLint + Prettier).
 
-## Getting Started
+---
 
-Usually, you would get some starter code to build from, but with this project, it’s your job to prove you can do it from scratch, so all that is being provided for you is a folder of license-free stock images you are welcome to use. If you would like to use your own images for this project, you are welcome to do so, but whoever reviews your project will see your images, and when you display your project online, viewers will also see them.
+## 📂 Project Structure
+```
+Building-a-Server-Project/
+├── src/
+│   ├── index.ts
+│   ├── server.ts
+│   ├── routes/
+│   │   └── images.ts
+│   └── utilities/
+│       └── imageProcessor.ts
+├── tests/
+│   ├── helpers/imageProcessorSpec.ts
+│   └── routes/imagesSpec.ts
+├── images/          # Original images (input)
+├── thumbs/          # Cached resized images (output)
+├── package.json
+├── tsconfig.json
+├── jasmine.json
+└── README.md
+```
 
-You can use your own images or use the ones provided in this repo: [images](images)
+---
 
-## Instructions
+## 🚀 Features
+- Resize images dynamically (`width`, `height`).
+- Cache resized images for future requests.
+- Error handling for missing/invalid parameters.
+- Unit + integration tests with Jasmine and SuperTest.
+- Linting (ESLint) and formatting (Prettier).
 
-Feel free to attempt to create this project based on the overview and rubric specifications. If you get stuck or prefer structured guidance -- here is a walkthrough to get you up and running!
+---
 
-1. **Initialize your project.**
-   Add the dependencies required for this project, including Express, TypeScript, Jasmine, Eslint, and Prettier. Complete your package.json file.
-   - Where should your dependencies be placed?
-   - What scripts should you create to take advantage of the dependencies you've added?
-   - Are there other dependencies you would like to add or know you will need to improve your workflow?
-2. **Set up your project structure.**
-   Create folders and files for what you anticipate you will need for the project.
-   - How do you plan to keep your source code and build code separately?
-   - Where will you keep your tests?
-   - How do you plan to name your routes? Utilities?
-3. **Configure your middleware and dependencies.**
-   You have quite a few dependencies that all need to work together. Sometimes it's easiest to write some simple js functions to test that all of your dependencies work together before you begin adding any functionality.
+## ⚙️ Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/image-resizing-api.git
+   cd image-resizing-api
+   ```
 
-   - Does your TypeScript compile?
-   - Do your Eslint and Prettier scripts work?
-   - Are you able to write and pass
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-4. **Set up your server and create an API endpoint.** Even though this application is fairly straightforward, you still want to set it up in a scalable way. How can you set up your server and route so that your project remains scalable? Only one endpoint is required. It's best to create this and test that it is working before you move on.
+---
 
-5. **Install [Sharp](https://www.npmjs.com/package/sharp) and configure endpoint.**
-   Create a separate module for your processing functionality and import it into your route. You are only required to add resizing, but you may add additional processing if you choose to extend your application. You are only required to work with jpg files, so keep that in mind if you choose to use your own images and they are other formats.
-   - Pay close attention to if you need to use asynchronous code or not. If you do, make sure you stay consistent throughout your application.
-   - There is limited information on using Sharp with TypeScript, but don't let that be a blocker. Think about what type the Sharp constructor would return. Have a look at the [Sharp Constructor documentation](https://sharp.pixelplumbing.com/api-constructor) and the examples it provides.
-6. **Write your tests.**
-   If you haven't already been writing unit tests, now would be the time to start. Think about what you should test? At a minimum, you should have at least one test for your endpoint and at least one test for your image processing, but there are many different tests you could create.
-7. **Add caching.**
-   Add caching to your application so that repeated requests to your endpoint use pre-stored images rather than regenerating a new image each time.
-8. **Test, Debug, and Refactor.**
-   Think of edge-cases for your project and how someone may access your project. Should they get different error messages based on what's wrong? Make certain that your user isn't left in the dark when something goes wrong.
-   - Do all of your tests still pass?
-   - Does stopping and restarting your server cause any issues?
-   - Does your user get feedback when something goes wrong?
-   - Is your code easy to follow? Comments?
-   - Is your API production-ready?
-9. **Build, Document, and Submit.**
-   If everything else has gone well, you should be able to compile your typescript and start up your production server to test that everything still works as expected. Make sure you've provided all necessary information in your readme file, so your reviewer knows how to test your API. If everything works and your documentation is complete, you're ready to submit!
-   **_Congratulations!_**
+## 🛠 Usage
 
-## Version Control
+### Development (auto-reload)
+```bash
+npm run dev
+```
 
-Although not a requirement, we recommend using Git from the very beginning if you choose to build on your local environment or use the provided workspace. Make sure to commit often and to use well-formatted commit messages.
+### Build & Run (production)
+```bash
+npm run build
+npm start
+```
+Or run directly with Node
+```bash
+node dist/index
+```
 
-## License
+Server will start on [http://localhost:3000](http://localhost:3000).
 
-[License](LICENSE.txt)
+---
+
+## 📡 API Endpoint
+
+**GET** `/api/images?filename=<name>&width=<px>&height=<px>`
+
+### Example
+```
+http://localhost:3000/api/images?filename=encenadaport.jpg&width=300&height=200
+```
+
+- **filename** → image file in `images/` (e.g., `fjord.jpg`)  
+- **width** → positive integer  
+- **height** → positive integer  
+
+✅ First request → resizes with Sharp and saves in `thumbs/`  
+✅ Next requests → serves cached file instantly  
+
+---
+
+## ✅ Tests
+Run all tests (unit + integration):
+```bash
+npm test
+```
+
+Frameworks: **Jasmine + SuperTest**
+
+---
+
+## 🧹 Code Quality
+- Lint check:
+  ```bash
+  npm run lint
+  ```
+- Auto-format:
+  ```bash
+  npm run prettier
+  ```
+
+---
+
+## 📌 Notes
+- Only `.jpg` images are supported by default (easy to extend for PNG/WebP).
+- Add your source images into the `images/` folder.
+- Cached resized versions are stored in `thumbs/`.
+
+---
+
+## 👨‍💻 Author
+Built by [Ali Odeh](https://github.com/Ali-Odeh) 
